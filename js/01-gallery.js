@@ -2,24 +2,10 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 console.log(galleryItems);
-// console.log(basiclightbox);
-
-// const instance = basicLightbox.create(`
-// 	<h1>Dynamic Content</h1>
-// 	<p>You can set the content of the lightbox with JS.</p>
-// `)
-// instance.show(); 
-
-// console.log(basicLightbox);
-// console.log(basiclightbox);
-
-
 
 const div = document.querySelector(".gallery");
-// console.log(div);
 
 // const markup = galleryItems.reduce((acc, { preview, original, description }) => acc + `description`, '');
-
 
 const markup = galleryItems.map(({ preview, original, description }) => 
 `<a class="gallery__link" href="${original}">
@@ -30,10 +16,13 @@ const markup = galleryItems.map(({ preview, original, description }) =>
       alt="${description}"
     />
   </a>`).join('');
-// console.log(markup);
 
 div.insertAdjacentHTML('beforeend', markup);
 div.addEventListener('click', onClick);
+
+
+// const link = document.querySelector('.gallery__link');
+// link.addEventListener('click', (evt) => { evt.preventDefault() });
 
 
 function onClick(evt) {
@@ -42,23 +31,10 @@ function onClick(evt) {
     }
   const urlOriginal = evt.target.dataset.source;
   
-
-  // console.log(urlOriginal);
-  
   basicLightbox.create(`
 		<img width="1400" height="900" src="${urlOriginal}">
 	`).show()
-
-
-
-    // console.log(evt.target.classList.contains('gallery__image'));
-    // console.log(evt.currentTarget);
 }
-
-
-// const urlOriginal = galleryItems.map(item => item.original);
-// console.log(urlOriginal);
-
 
 
 
@@ -66,8 +42,10 @@ function onClick(evt) {
 
 // Виконуй це завдання у файлах 01-gallery.html і 01-gallery.js. Розбий його на декілька підзавдань:
 
-// Створення і рендер розмітки на підставі масиву даних galleryItems і наданого шаблону елемента галереї.
-// Реалізація делегування на div.gallery і отримання url великого зображення.
-// Підключення скрипту і стилів бібліотеки модального вікна basicLightbox. Використовуй CDN сервіс jsdelivr і додай у проект посилання на мініфіковані (.min) файли бібліотеки.
-// Відкриття модального вікна по кліку на елементі галереї. Для цього ознайомся з документацією і прикладами.
-// Заміна значення атрибута src елемента <img> в модальному вікні перед відкриттям. Використовуй готову розмітку модального вікна із зображенням з прикладів бібліотеки basicLightbox.
+// 1. Створення і рендер розмітки на підставі масиву даних galleryItems і наданого шаблону елемента галереї.
+// 2. Реалізація делегування на div.gallery і отримання url великого зображення.
+// 3. Підключення скрипту і стилів бібліотеки модального вікна basicLightbox. Використовуй CDN сервіс jsdelivr і 
+// додай у проект посилання на мініфіковані(.min) файли бібліотеки.
+// 4. Відкриття модального вікна по кліку на елементі галереї. Для цього ознайомся з документацією і прикладами.
+// 5. Заміна значення атрибута src елемента <img> в модальному вікні перед відкриттям. 
+// Використовуй готову розмітку модального вікна із зображенням з прикладів бібліотеки basicLightbox.
