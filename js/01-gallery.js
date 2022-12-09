@@ -2,6 +2,17 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 console.log(galleryItems);
+// console.log(basiclightbox);
+
+// const instance = basicLightbox.create(`
+// 	<h1>Dynamic Content</h1>
+// 	<p>You can set the content of the lightbox with JS.</p>
+// `)
+// instance.show(); 
+
+// console.log(basicLightbox);
+// console.log(basiclightbox);
+
 
 
 const div = document.querySelector(".gallery");
@@ -29,13 +40,19 @@ function onClick(evt) {
     if (!evt.target.classList.contains('gallery__image')) {
         return
     }
-    const test = evt.target.dataset.source;
+  const urlOriginal = evt.target.dataset.source;
+  
 
-    console.log(test);
+  // console.log(urlOriginal);
+  
+  basicLightbox.create(`
+		<img width="1400" height="900" src="${urlOriginal}">
+	`).show()
 
 
-    console.log(evt.target.classList.contains('gallery__image'));
-    console.log(evt.currentTarget);
+
+    // console.log(evt.target.classList.contains('gallery__image'));
+    // console.log(evt.currentTarget);
 }
 
 
