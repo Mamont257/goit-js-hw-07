@@ -20,15 +20,11 @@ const markup = galleryItems.map(({ preview, original, description }) =>
 div.insertAdjacentHTML('beforeend', markup);
 div.addEventListener('click', onClick);
 
-
-// const link = document.querySelector('.gallery__link');
-// link.addEventListener('click', (evt) => { evt.preventDefault() });
-
-
 function onClick(evt) {
     if (!evt.target.classList.contains('gallery__image')) {
         return
     }
+  evt.preventDefault();
   const urlOriginal = evt.target.dataset.source;
   
   basicLightbox.create(`
