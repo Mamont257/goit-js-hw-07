@@ -27,9 +27,18 @@ function onClick(evt) {
   evt.preventDefault();
   const urlOriginal = evt.target.dataset.source;
   
-  basicLightbox.create(`
+  const instance = basicLightbox.create(`
 		<img width="1400" height="900" src="${urlOriginal}">
-	`).show()
+	`)
+
+  instance.show();
+
+  div.addEventListener('keydown', onKey);
+  function onKey(evt) {
+    if (evt.key === 'Escape') {
+      instance.close();
+    }
+  }
 }
 
 
