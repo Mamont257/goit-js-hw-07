@@ -10,16 +10,9 @@ const markup = galleryItems.reduce((acc,{ preview, original, description }) => a
  </a>`, '')
 
 ul.insertAdjacentHTML('beforeend', markup);
-ul.addEventListener('click', onClick);
 
-function onClick(evt) {
-    if (!evt.target.classList.contains('gallery__image')) {
-        return
-    }
-    evt.preventDefault();
+new SimpleLightbox('.gallery a', { captionDelay: 250, overlayOpacity: 0.5 });
 
-    new SimpleLightbox('.gallery a', {captionDelay: 250, overlayOpacity: 0.5});
-}
 
 
 
